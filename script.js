@@ -1,3 +1,4 @@
+// Menu Toggle Functionality
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 
@@ -13,4 +14,5 @@ document.querySelectorAll('.main-nav a').forEach(link => {
   });
 });
 
+// Dynamic Year in Footer
 document.getElementById('year').textContent = new Date().getFullYear();

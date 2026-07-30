@@ -219,41 +219,52 @@
     </article>
     </div>
     </section>
-          
+    
+          <!-- Story Form Section -->
+    <section class="your-miles-matter">
+      <h1>YOUR MILES MATTER.</h1>
+      <p class="tagline">Every driver has a story. Every mile has meaning.</p>
+    </section>
 
-    <!-- Story Form Section -->
-  <section class="your-miles-matter">
-  <h1>YOUR MILES MATTER.</h1>
-  <p class="tagline">Every driver has a story. Every mile has meaning.</p>
-</section>
-
-<section class="story-form">
-  <h2>Share Your Journey</h2>
-  <p class="subtitle">We want to hear from you. Tell us about your experiences on the road.</p>
+    <section class="story-form">
+      <h2>Share Your Journey</h2>
+      <p class="subtitle">We want to hear from you. Tell us about your experiences on the road.</p>
   
- <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST" accept-charset="UTF-8">
+      <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST" accept-charset="UTF-8">
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_subject" value="New Story Submission - Legendary Iron Transport">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="I would like to thank you for your story, it has been received and will be reviewed.">
+        <input type="hidden" name="_autoresponse" value="Thank you for sharing your journey with us. Your story has been received and will be carefully reviewed. We appreciate you being part of our community of drivers who understand that every mile matters.">
+    
       <div class="form-group">
-      <label for="name">Name or User Name</label>
-      <input type="text" id="name" placeholder="Enter your name">
-    </div>
+        <label for="name">Name or User Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+      </div>
   
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Enter your email">
-    </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+      </div>
     
-    <div class="form-group">
-      <label for="story">Your Story</label>
-      <textarea id="story" placeholder="Tell us about your journey..."></textarea>
-    </div>
+      <div class="form-group">
+        <label for="story">Your Story</label>
+        <textarea id="story" name="story" placeholder="Tell us about your journey..."></textarea>
+      </div>
     
-    <div class="checkbox-group">
-      <input type="checkbox" id="permission">
-      <label for="permission">I give permission for my approved story to be published.</label>
-       <button type="submit" class="submit-btn">Submit Story</button>
-    </div>    
-     </form>
-   </section>
+      <div class="privacy-warning">
+        <p><strong>⚠️ Privacy Notice:</strong> Please do not share personal information such as your exact age, gender, or specific location. This can be harmful. Keep your story focused on your experiences and journey.</p>
+      </div>
+    
+      <div class="checkbox-group">
+        <input type="checkbox" id="permission" name="permission">
+        <label for="permission">I give permission for my approved story to be published.</label>
+      </div>
+    
+      <button type="submit" class="submit-btn">Submit Story</button>
+   </form>
+ </section>
 
 
     <!-- Community Stats -->
@@ -292,6 +303,8 @@
 
           
 </html>
+
+
 
  
     

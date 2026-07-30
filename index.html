@@ -173,32 +173,51 @@
             <h2>CONTACT & SUPPORT</h2>
             <p>Have a question or need help? We are here for you.</p>
   
-           <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST" accept-charset="UTF-8">
-               <div class="form-group">
-                <label for="name">Name or User Name</label>
-                <input type="text" id="name" placeholder="Enter your name">
-              </div>
-           
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email">
-              </div>
+          <form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST" class="contact-form">
+             <div class="form-group">
+                <label for="contactName">Name</label>
+                <input type="text" id="contactName" name="name" placeholder="Enter your name" required>
+             </div>
+   
+
+            <div class="form-group">
+                <label for="contactEmail">Email</label>
+                <input type="email" id="contactEmail" name="email" placeholder="Enter your email" required>
+           </div>
+
+           <div class="form-group">
+               <button type="submit" class="btn-primary">Send Message</button>
+           </div>
+
+          <!-- FormSubmit Hidden Fields -->
+          <input type="hidden" name="_subject" value="New Contact Form Submission">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
+       </form>
     
-              <div class="form-group">
-                <label for="upload">Upload Image</label>
-                <input type="file" id="upload">
-                <small>Only .jpg, .png, .pdf files</small>
-              </div>
-    
-              <div class="form-group">
-                <label for="issue">Issue</label>
-                <textarea id="issue" placeholder="Describe your issue..."></textarea>
-                <button type="submit" class="submit-btn">Submit</button>
-              </div>
-            </form>
-          </div>
-        </article>
-      </div>
+       <form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST" class="support-form">
+          <div class="form-group">
+              <label for="supportSubject">Subject</label>
+              <input type="text" id="supportSubject" name="subject" placeholder="What is this regarding?" required>
+       </div>
+
+       <div class="form-group">
+          <label for="supportMessage">Message</label>
+          <textarea id="supportMessage" name="message" placeholder="Describe your issue..." rows="6" required></textarea>
+       </div>
+
+       <div class="form-group">
+         <button type="submit" class="btn-primary">Submit Ticket</button>
+       </div>
+
+       <!-- FormSubmit Hidden Fields -->
+       <input type="hidden" name="_subject" value="New Support Ticket Submission">
+       <input type="hidden" name="_captcha" value="false">
+       <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
+    </form>
+    </div>
+    </article>
+    </div>
     </section>
           
 

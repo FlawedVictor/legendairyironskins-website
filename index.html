@@ -54,9 +54,8 @@
         <h1>More Than Miles.<br><span>More Than Skins.</span></h1>
         <p class="hero-copy">A community built on craftsmanship, perseverance, and the people behind the wheel.</p>
         <div class="hero-actions">
-          <!-- FIXED BUTTONS BELOW -->
-          <a class="btn btn-primary" href="https://flawedvictorgaming-gmail-com-shop.fourthwall.com">Media & Merch</a>
-          <a class="btn btn-secondary" href="https://hub.truckyapp.com/company/46769">Join the Herd</a>
+          <a class="btn btn-primary" <a href="https://flawedvictorgaming-gmail-com-shop.fourthwall.com">Media & Merch</a>
+          <a class="btn btn-secondary"<a href="https://hub.truckyapp.com/company/46769">Join the Herd</a>
         </div>
       </div>
     </section>
@@ -114,21 +113,27 @@
           <div class="card-body">
             <h2>Contact & Support</h2>
             <p>Have a question or need help? We are here for you.</p>
-            
-            <!-- FIXED FORM BELOW - Properly Indented Inside card-body -->
-            <form action="https://formsubmit.co/flawedvictorgaming@gmail.com" method="POST">
-              <label>Name
-                <input type="text" name="name" required placeholder="Your Name">
-              </label>
-              <label>Email
-                <input type="email" name="email" required placeholder="Your Email">
-              </label>
-              <label>Describe the issue
-                <textarea name="issue" rows="4" required placeholder="What is the problem?"></textarea>
-              </label>
-              <button type="submit">Send</button>
+            <form 'onsubmit="this.reset()"' action="https://formsubmit.co/flawedvictorgaming@gmail.com" method="POST" enctype="multipart/form-data">
+               <!-- Hidden fields for Formsubmit.co configuration -->
+               <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you">
+               <input type="hidden" name="_subject" value="New Contact Form Submission">
+
+               <!-- Text Fields -->
+               <label>Name or User Name</label>
+               <input type="text" name="name" required placeholder="Enter your name">
+
+               <label>Email</label>
+               <input type="email" name="email" required placeholder="Enter your email">
+
+               <!-- File Input (CRITICAL: Must be type="file") -->
+               <label>Upload Image</label>
+               <input type="file" name="user_image" accept="image/*" required>
+
+               <label>Issue</label>
+               <textarea name="issue" rows="7" required placeholder="How may we help..."></textarea>
+
+               <button type="submit">Send</button>
             </form>
-            
           </div>
         </article>
       </div>
@@ -143,7 +148,7 @@
           <p>Some stories are about the road. Some are about life. lessons, second chances, or finding a place to belong.</p>
           <p>If you would like to share your journey, we would be honored to give it a place here.</p>
         </div>
-        <form action="https://formsubmit.co/flawedvictorgaming@gmail.com" method="POST">
+        <form action="https://formsubmit.co/flawedvictorgaming@gmail.com" method="POST" />
           <label>Name or User name
             <input type="text" name="name" required placeholder="Enter your name">
           </label>

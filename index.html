@@ -174,11 +174,10 @@
             <p>Have a question or need help? We are here for you.</p>
   
            <form action="https://formsubmit.co/your-email@example.com" method="POST" accept-charset="UTF-8">
-                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you">
-                <input type="hidden" name="_subject" value="New Contact Form Submission">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-            </form>
+               <input type="text" name="name" required>
+               <input type="email" name="email" required>
+               <button type="submit">Send</button>
+           </form>
               <div class="form-group">
                 <label for="name">Name or User Name</label>
                 <input type="text" id="name" placeholder="Enter your name">
@@ -218,10 +217,9 @@
   <p class="subtitle">We want to hear from you. Tell us about your experiences on the road.</p>
   
  <form action="https://formsubmit.co/your-email@example.com" method="POST" accept-charset="UTF-8">
-      <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you">
-      <input type="hidden" name="_subject" value="New Contact Form Submission">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
+       <input type="text" name="name" required>
+       <input type="email" name="email" required>
+       <button type="submit">Send</button>
  </form>
     <div class="form-group">
       <label for="name">Name or User Name</label>
@@ -280,6 +278,8 @@
 
   <script src="script.js"></script>
 </body>
+
+          
 </html>
 
   

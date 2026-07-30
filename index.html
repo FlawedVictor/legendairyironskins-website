@@ -202,33 +202,39 @@
     </section>
 
     <!-- Story Form Section -->
-    <section class="story-section" id="share">
-      <div class="container story-wrap">
-        <div class="story-text">
-          <p class="eyebrow">Every Driver Has a Story</p>
-          <h2>Your miles matter.</h2>
-          <p>Some stories are about the road. Some are about life. lessons, second chances, or finding a place to belong.</p>
-          <p>If you would like to share your journey, we would be honored to give it a place here.</p>
-        </div>
-        <form action="https://formsubmit.co/flawedvictorgaming@gmail.com" method="POST" />
-          <label>Name or User name
-            <input type="text" name="name" required placeholder="Enter your name">
-          </label>
-          <label>Email
-            <input type="email" name="email" required placeholder="Enter your email">
-          </label>
-          <label>Your story
-            <textarea name="story" rows="7" required placeholder="Tell us about your journey..."></textarea>
-          </label>
-          <label class="checkbox">
-            <input type="checkbox" name="permission" required> 
-            I give permission for my approved story to be published.
-          </label>
-          <button class="btn btn-primary" type="submit">Share Your Story</button>
-          <small>Stories are reviewed before appearing publicly.</small>
-        </form>
-      </div>
-    </section>
+  <section class="your-miles-matter">
+  <h1>YOUR MILES MATTER.</h1>
+  <p class="tagline">Every driver has a story. Every mile has meaning.</p>
+</section>
+
+<section class="story-form">
+  <h2>Share Your Journey</h2>
+  <p class="subtitle">We want to hear from you. Tell us about your experiences on the road.</p>
+  
+  <form>
+    <div class="form-group">
+      <label for="name">Name or User Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email">
+    </div>
+    
+    <div class="form-group">
+      <label for="story">Your Story</label>
+      <textarea id="story" placeholder="Tell us about your journey..."></textarea>
+    </div>
+    
+    <div class="checkbox-group">
+      <input type="checkbox" id="permission">
+      <label for="permission">I give permission for my approved story to be published.</label>
+    </div>
+    
+    <button type="submit" class="submit-btn">Submit Story</button>
+  </form>
+</section>
 
     <!-- Community Stats -->
     <section class="community section-pad" id="about">

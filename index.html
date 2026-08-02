@@ -3,75 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-  .contact-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #1a1a1a;
-    border-radius: 8px;
-    color: #fff;
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #00ff88;
-  }
-
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #333;
-    border-radius: 4px;
-    background: #2a2a2a;
-    color: #fff;
-    font-size: 14px;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: #00ff88;
-  }
-
-  .submit-btn {
-    background: #00ff88;
-    color: #000;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-
-  .submit-btn:hover {
-    background: #00cc6a;
-  }
-
-  small {
-    color: #888;
-    font-size: 12px;
-  }
-</style>
-  
-    <title>Legendairy Iron Transport</title>
+  <title>Legendairy Iron Transport</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Your existing styles (Ensure styles.css is linked) -->
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* --- NEW STYLES FOR ALBUM & TABS --- */
+    
+    /* Tab Container Styling */
+    .tab-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #2a2a2a;
+      border-radius: 8px;
+      padding: 20px;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: #aaa;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      border-bottom: 2px solid transparent;
+    }
+    .tab-btn:hover { color: #00ff88; }
+    .tab-btn.active {
+      color: #00ff88;
+      border-bottom: 2px solid #00ff88;
+    }
+    .tab-content { display: none; animation: fadeIn 0.5s; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Album Section Styles */
+    .album-section {
+      background: #111;
+      padding: 80px 20px;
+      text-align: center;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+      margin-top: 40px;
+    }
+    .album-section h2 {
+      color: #00ff88;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 15px;
+      font-size: 2.5rem;
+    }
+    .album-section p {
+      color: #aaa;
+      margin-bottom: 50px;
+      font-size: 1.1rem;
+    }
+    
+    /* Album Wrapper */
+    .album-wrapper {
+      position: relative;
+      width: 800px;
+      max-width: 95%;
+      height: 600px;
+      perspective: 1500px;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    .book {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      border-radius: 5px;
+      background: #1a252f;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    .page {
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #fdfbf7;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+      padding: 30px;
+      box-sizing: border-box;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transform-origin: left center;
+      border-right: 1px solid #dcdcdc;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Scrollbar for pages */
+    .page::-webkit-scrollbar { width: 8px; }
+    .page::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+    
+    .page.left { z-index: 2; transform: rotateY(0deg); }
+    .page.right { z-index: 1; transform: rotateY(-180deg); }
+    
+    .book.flipped .page.left { transform: rotateY(-180deg); z-index: 1; }
+    .book.flipped .page.right { transform: rotateY(0deg); z-index: 2; }
+    
+    /* Left Page Content */
+    .driver-photo {
+      width: 100%;
+      height: 320px;
+      background-color: #ddd;
+      /* REPLACE THE URL BELOW WITH YOUR ACTUAL DRIVER PHOTO */
+      background-image: url('https://via.placeholder.com/400x320?text=Driver+Photo'); 
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+      border: 4px double #333;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+    .driver-info h2 { margin-top: 0; color: #2c3e50; border-bottom: 2px solid #e74c3c; padding-bottom: 10px; }
+    .driver-stats { font-size: 0.95em; color: #555; line-height: 1.6; }
+    
+    /* Right Page Content */
+    .journal-header {
+      text-align: center;
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2em;
+      color: #e74c3c;
+      margin-bottom: 20px;
+    }
+    .journal-section { margin-bottom: 30px; }
+    .section-title { font-family: 'Georgia', serif; font-size: 1.2em; font-weight: bold; color: #333; border-bottom: 1px dashed #aaa; margin-bottom: 15px; padding-bottom: 5px; }
+    
+    .letter-card {
+      background: #fff; padding: 15px; margin-bottom: 15px; border: 1px solid #e0e0e0;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.05); position: relative;
+      font-family: 'Courier New', monospace; font-size: 0.9em; line-height: 1.5; transform: rotate(-1deg);
+    }
+    .letter-card:nth-child(even) { transform: rotate(1deg); }
+    .letter-card::before {
+      content: ''; position: absolute; top: -8px; left: 50%; width: 24px; height: 24px;
+      background: #e74c3c; border-radius: 50%; transform: translateX(-50%);
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    .letter-author { font-weight: bold; text-align: right; margin-top: 10px; font-style: italic; color: #555; }
+    
+    .story-card {
+      background: #fff; padding: 15px; margin-bottom: 15px; border-left: 4px solid #e74c3c;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.05); font-family: 'Georgia', serif; font-size: 1em; line-height: 1.6; color: #333;
+    }
+    .story-title { font-weight: bold; color: #e74c3c; margin-bottom: 5px; display: block; }
+
+    /* Mobile Responsive */
+    @media (max-width: 850px) {
+      .album-wrapper { height: 550px; }
+      .book { display: flex; flex-direction: column; }
+      .page { width: 100%; height: 100%; position: relative; transform: none !important; border: none; border-bottom: 2px solid #ccc; padding: 20px; }
+      .tab-buttons { flex-direction: column; }
+      .tab-btn { width: 100%; text-align: left; }
+    }
+  </style>
 </head>
 <body>
+
   <!-- Top Bar -->
   <div class="topbar">
     <div class="container topbar-inner">
@@ -84,7 +193,7 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Header (Clean Navigation - Buttons Only Here) -->
   <header class="site-header" id="home">
     <div class="container nav-wrap">
       <a class="brand" href="#home">
@@ -96,16 +205,14 @@
         <a href="#home">Home</a>
         <a href="#skins">ATS Skins</a>
         <a href="#vtc">VTC</a>
-        <a href="#stories">Stories</a>
-        <a href="#live">Live</a>
-        <a href="#media">Media</a>
-        <a href="#contact">Contact</a>
+        <a href="#memorial-album">Memorial Album</a>
+        <a href="#contact">Contact & Stories</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section (FIXED Broken HTML) -->
     <section class="hero" id="home-anchor">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
@@ -113,8 +220,9 @@
         <h1>More Than Miles.<br><span>More Than Skins.</span></h1>
         <p class="hero-copy">A community built on craftsmanship, perseverance, and the people behind the wheel.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" <a href="https://flawedvictorgaming-gmail-com-shop.fourthwall.com">Media & Merch</a>
-          <a class="btn btn-secondary"<a href="https://hub.truckyapp.com/company/46769">Join the Herd</a>
+          <!-- FIXED: Removed nested <a> tags that caused double buttons -->
+          <a class="btn btn-primary" href="https://flawedvictorgaming-gmail-com-shop.fourthwall.com">Media & Merch</a>
+          <a class="btn btn-secondary" href="https://hub.truckyapp.com/company/46769">Join the Herd</a>
         </div>
       </div>
     </section>
@@ -145,7 +253,7 @@
           <div class="card-body">
             <h2>Stories From the Road</h2>
             <p>Every driver has a story. Share yours and become part of our growing legacy.</p>
-            <a href="#share">View More →</a>
+            <a href="#contact">Share Story →</a>
           </div>
         </article>
 
@@ -166,106 +274,150 @@
             <a href="https://flawedvictorgaming-gmail-com-shop.fourthwall.com">View More →</a>
           </div>
         </article>
+      </div>
+    </section>
 
-        <article class="feature-card" id="contact">
-          <div class="card-image image-support"></div>
-          <div class="contact-form">
-            <h2>CONTACT & SUPPORT</h2>
-            <p>Have a question or need help? We are here for you.</p>
-  
-          <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST" class="contact-form">
-             <div class="form-group">
+    <!-- NEW: Memorial Album Section -->
+    <section class="album-section" id="memorial-album">
+      <div class="container">
+        <h2>Memorial Album</h2>
+        <p>Click the book to flip pages and read letters & stories from the community.</p>
+        
+        <div class="album-wrapper" onclick="flipAlbum()">
+          <div class="book" id="albumBook">
+            <!-- LEFT PAGE: Driver Profile -->
+            <div class="page left">
+              <div class="driver-photo"></div>
+              <div class="driver-info">
+                <h2>John "The Rocket" Doe</h2>
+                <div class="driver-stats">
+                  <p><strong>Lived:</strong> 1985 - 2024</p>
+                  <p><strong>Team:</strong> Apex Racing</p>
+                  <p><strong>Legacy:</strong> "He drove with his heart."</p>
+                  <br>
+                  <p><em>Click the book to read letters and stories from his friends and family.</em></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT PAGE: Letters & Stories -->
+            <div class="page right">
+              <div class="journal-header">His Life in Words</div>
+
+              <div class="journal-section">
+                <div class="section-title">Letters to John</div>
+                <div class="letter-card">
+                  "John, you were the first one to help me when I broke down on the track. Your kindness was as fast as your car."
+                  <div class="letter-author">- Sarah M.</div>
+                </div>
+                <div class="letter-card">
+                  "I still can't believe you're gone. Remember that rainy day at the 2020 race? We laughed until we cried."
+                  <div class="letter-author">- Mike T.</div>
+                </div>
+              </div>
+
+              <div class="journal-section">
+                <div class="section-title">Memories & Stories</div>
+                <div class="story-card">
+                  <span class="story-title">The First Win</span>
+                  John didn't just win that race; he drove through the mud, the rain, and the noise. When he crossed the finish line, he just sat there, smiling.
+                </div>
+                <div class="story-card">
+                  <span class="story-title">The Garage Talks</span>
+                  Every Sunday, he'd invite us over for coffee. No racing talk, just life. He taught me that speed doesn't matter if you don't have people to share the ride with.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Story Section (MERGED FORMS) -->
+    <section class="feature-grid section-pad" id="contact">
+      <div class="container">
+        <div class="tab-container">
+          <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab(event, 'contactForm')">Contact</button>
+            <button class="tab-btn" onclick="openTab(event, 'supportForm')">Support</button>
+            <button class="tab-btn" onclick="openTab(event, 'storyForm')">Share Story</button>
+          </div>
+
+          <!-- Contact Form -->
+          <div id="contactForm" class="tab-content active">
+            <h2 style="color:#00ff88; text-align:center; margin-bottom:20px;">Contact Us</h2>
+            <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST">
+              <div class="form-group">
                 <label for="contactName">Name</label>
                 <input type="text" id="contactName" name="name" placeholder="Enter your name" required>
-             </div>
-   
-
-            <div class="form-group">
+              </div>
+              <div class="form-group">
                 <label for="contactEmail">Email</label>
                 <input type="email" id="contactEmail" name="email" placeholder="Enter your email" required>
-           </div>
+              </div>
+              <div class="form-group">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" name="message" rows="5" placeholder="How can we help?" required></textarea>
+              </div>
+              <input type="hidden" name="_subject" value="New Contact Form Submission">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
+              <button type="submit" class="submit-btn" style="width:100%; background:#00ff88; color:#000; border:none; padding:12px; font-weight:bold; cursor:pointer;">Send Message</button>
+            </form>
+          </div>
 
-           <div class="form-group">
-               <button type="submit" class="btn-primary">Send Message</button>
-           </div>
+          <!-- Support Form -->
+          <div id="supportForm" class="tab-content">
+            <h2 style="color:#00ff88; text-align:center; margin-bottom:20px;">Support Ticket</h2>
+            <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST">
+              <div class="form-group">
+                <label for="supportSubject">Subject</label>
+                <input type="text" id="supportSubject" name="subject" placeholder="What is this regarding?" required>
+              </div>
+              <div class="form-group">
+                <label for="supportMessage">Message</label>
+                <textarea id="supportMessage" name="message" rows="6" placeholder="Describe your issue..." required></textarea>
+              </div>
+              <input type="hidden" name="_subject" value="New Support Ticket Submission">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
+              <button type="submit" class="submit-btn" style="width:100%; background:#00ff88; color:#000; border:none; padding:12px; font-weight:bold; cursor:pointer;">Submit Ticket</button>
+            </form>
+          </div>
 
-          <!-- FormSubmit Hidden Fields -->
-          <input type="hidden" name="_subject" value="New Contact Form Submission">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
-       </form>
-    
-       <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST" class="support-form">
-          <div class="form-group">
-              <label for="supportSubject">Subject</label>
-              <input type="text" id="supportSubject" name="subject" placeholder="What is this regarding?" required>
-       </div>
+          <!-- Story Form -->
+          <div id="storyForm" class="tab-content">
+            <h2 style="color:#00ff88; text-align:center; margin-bottom:20px;">Share Your Journey</h2>
+            <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST">
+              <div class="form-group">
+                <label for="storyName">Name or User Name</label>
+                <input type="text" id="storyName" name="name" placeholder="Enter your name" required>
+              </div>
+              <div class="form-group">
+                <label for="storyEmail">Email</label>
+                <input type="email" id="storyEmail" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="form-group">
+                <label for="storyText">Your Story</label>
+                <textarea id="storyText" name="story" rows="7" placeholder="Tell us about your journey..." required></textarea>
+              </div>
+              <div class="privacy-warning" style="background:#333; padding:10px; border-radius:4px; margin-bottom:15px; font-size:0.9em;">
+                <strong>⚠️ Privacy Notice:</strong> Please do not share personal information such as your exact age, gender, or specific location.
+              </div>
+              <div class="checkbox-group" style="margin-bottom:15px;">
+                <input type="checkbox" id="permission" name="permission" required>
+                <label for="permission" style="font-size:0.9em;">I give permission for my approved story to be published.</label>
+              </div>
+              <input type="hidden" name="_subject" value="New Story Submission - Legendary Iron Transport">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
+              <button type="submit" class="submit-btn" style="width:100%; background:#00ff88; color:#000; border:none; padding:12px; font-weight:bold; cursor:pointer;">Submit Story</button>
+            </form>
+          </div>
 
-       <div class="form-group">
-          <label for="supportMessage">Message</label>
-          <textarea id="supportMessage" name="message" placeholder="Describe your issue..." rows="6" required></textarea>
-       </div>
-
-       <div class="form-group">
-         <button type="submit" class="btn-primary">Submit Ticket</button>
-       </div>
-
-       <!-- FormSubmit Hidden Fields -->
-       <input type="hidden" name="_subject" value="New Support Ticket Submission">
-       <input type="hidden" name="_captcha" value="false">
-       <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
-    </form>
-    </div>
-    </article>
-    </div>
+        </div>
+      </div>
     </section>
-    
-          <!-- Story Form Section -->
-    <section class="your-miles-matter">
-      <h1>YOUR MILES MATTER.</h1>
-      <p class="tagline">Every driver has a story. Every mile has meaning.</p>
-    </section>
-
-    <section class="story-form">
-      <h2>Share Your Journey</h2>
-      <p class="subtitle">We want to hear from you. Tell us about your experiences on the road.</p>
-  
-      <form action="https://formsubmit.co/legendairyironskins@yahoo.com" method="POST" accept-charset="UTF-8">
-        <!-- FormSubmit Configuration -->
-        <input type="hidden" name="_subject" value="New Story Submission - Legendary Iron Transport">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_autoresponse" value="I would like to thank you for your story, it has been received and will be reviewed.">
-        <input type="hidden" name="_autoresponse" value="Thank you for sharing your journey with us. Your story has been received and will be carefully reviewed. We appreciate you being part of our community of drivers who understand that every mile matters.">
-    
-      <div class="form-group">
-        <label for="name">Name or User Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name">
-      </div>
-  
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email">
-      </div>
-    
-      <div class="form-group">
-        <label for="story">Your Story</label>
-        <textarea id="story" name="story" placeholder="Tell us about your journey..."></textarea>
-      </div>
-    
-      <div class="privacy-warning">
-        <p><strong>⚠️ Privacy Notice:</strong> Please do not share personal information such as your exact age, gender, or specific location. This can be harmful. Keep your story focused on your experiences and journey.</p>
-      </div>
-    
-      <div class="checkbox-group">
-        <input type="checkbox" id="permission" name="permission">
-        <label for="permission">I give permission for my approved story to be published.</label>
-      </div>
-    
-      <button type="submit" class="submit-btn">Submit Story</button>
-   </form>
- </section>
-
 
     <!-- Community Stats -->
     <section class="community section-pad" id="about">
@@ -291,7 +443,7 @@
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#skins">ATS Skins</a>
-        <a href="#stories">Stories</a>
+        <a href="#memorial-album">Memorial Album</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -299,9 +451,45 @@
   </footer>
 
   <script src="script.js"></script>
-</body>
+  
+  <!-- NEW SCRIPT FOR TABS AND ALBUM -->
+  <script>
+    // Tab Switching Logic
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+      }
+      
+      tablinks = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      
+      document.getElementById(tabName).style.display = "block";
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.className += " active";
+    }
 
-          
+    // Album Flip Logic
+    let isFlipped = false;
+    function flipAlbum() {
+      const book = document.getElementById('albumBook');
+      isFlipped = !isFlipped;
+      if (isFlipped) {
+        book.classList.add('flipped');
+      } else {
+        book.classList.remove('flipped');
+      }
+    }
+
+    // Set Current Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
 
 

@@ -399,7 +399,7 @@
               </div>
               <input type="hidden" name="_subject" value="New Contact Form Submission">
               <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
+              <input type="hidden" name="_next" value="https://legendairyironskins.com/index.html?contact=success">
               <button type="submit" class="submit-btn">Send Message</button>
             </form>
           </div>
@@ -418,7 +418,7 @@
               </div>
               <input type="hidden" name="_subject" value="New Support Ticket Submission">
               <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
+              <input type="hidden" name="_next" value="https://legendairyironskins.com/index.html?support=success">
               <button type="submit" class="submit-btn">Submit Ticket</button>
             </form>
           </div>
@@ -448,7 +448,7 @@
               </div>
               <input type="hidden" name="_subject" value="New Story Submission - Legendary Iron Transport">
               <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" value="https://legendaryskins.com/thank-you.html">
+              <input type="hidden" name="_next" value="https://legendairyironskins.com/index.html?story=success">
               <button type="submit" class="submit-btn">Submit Story</button>
             </form>
           </div>
@@ -456,6 +456,45 @@
         </div>
       </div>
     </section>
+
+    <!-- HIDDEN THANK YOU OVERLAY (Appears only after form submission) -->
+    <div id="thank-you-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; justify-content:center; align-items:center; flex-direction:center; text-align:center; color:#fff; padding:20px;">
+      <div style="background:#1a1a1a; padding:40px; border-radius:8px; border:1px solid #00ff88; max-width:600px; width:90%;">
+        <h2 style="color:#00ff88; font-family:'Cinzel', serif; margin-bottom:20px;">Thank You!</h2>
+        <p id="thank-you-text" style="font-size:1.2rem; line-height:1.6; margin-bottom:30px;"></p>
+        <button onclick="closeThankYou()" style="background:#00ff88; color:#000; border:none; padding:12px 30px; border-radius:4px; font-weight:bold; cursor:pointer; font-size:1rem;">Close & Return</button>
+      </div>
+    </div>
+
+    <script>
+      // Check URL parameters to show thank you message
+      const urlParams = new URLSearchParams(window.location.search);
+      const contactSuccess = urlParams.get('contact');
+      const supportSuccess = urlParams.get('support');
+      const storySuccess = urlParams.get('story');
+
+      if (contactSuccess || supportSuccess || storySuccess) {
+        const overlay = document.getElementById('thank-you-overlay');
+        const text = document.getElementById('thank-you-text');
+        
+        overlay.style.display = 'flex';
+        
+        if (contactSuccess) {
+          text.textContent = "Thank you for your message. We will get back to you soon.";
+        } else if (supportSuccess) {
+          text.textContent = "Thank you for your support ticket. We will get back to you soon.";
+        } else if (storySuccess) {
+          text.textContent = "Thank you for your story. Legendairy Iron Transport appreciates you.";
+        }
+      }
+
+      function closeThankYou() {
+        // Remove the success parameters from the URL without reloading
+        const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+        document.getElementById('thank-you-overlay').style.display = 'none';
+      }
+    </script>
 
     <!-- Community Stats -->
     <section class="community section-pad" id="about">

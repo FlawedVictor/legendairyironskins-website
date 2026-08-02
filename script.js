@@ -17,10 +17,3 @@ document.querySelectorAll('.main-nav a').forEach(link => {
 // Dynamic Year in Footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Album Flip Logic (Fixed for multiple books)
-function flipBook(bookId) {
-  const book = document.getElementById(bookId);
-  if (book) {
-    book.classList.toggle('flipped');
-  }
-}

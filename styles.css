@@ -220,10 +220,8 @@ a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
 }
 .image-truck { background-image: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.6)), url('assets/truck-main.jpg'); background-position: 68% 35%; }
 .image-western { background-image: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.6)), url('assets/truck-main.jpg'); background-position: 22% 54%; }
-.image-journal { background-image: linear-gradient(135deg,#4a321b,#17100a); }
-.image-live { background-image: linear-gradient(135deg,#0e3750,#071016); }
 .image-merch { background-image: linear-gradient(135deg,#2b2b2b,#080808); }
-.image-support { background-image: linear-gradient(135deg,#1f3528,#07100b); }
+.image-live { background-image: linear-gradient(135deg,#0e3750,#071016); }
 
 .card-body { 
   padding: 1.5rem; 
@@ -248,68 +246,6 @@ a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
   margin-top: auto; 
   text-transform: uppercase; 
   font-size: .8rem; 
-}
-
-/* Story Section */
-.story-section { 
-  padding: 5rem 0; 
-  background: radial-gradient(circle at 30% 20%, rgba(14,207,116,.08), transparent 30%), #070a08; 
-}
-.story-wrap { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 4rem; 
-  align-items: start; 
-}
-.story-wrap h2 { 
-  font-family: Cinzel, serif; 
-  font-size: clamp(2rem, 4vw, 3.8rem); 
-  margin: 0 0 1rem; 
-}
-.story-wrap p { 
-  color: #cbd1cd; 
-  font-size: 1.05rem; 
-  margin-bottom: 1rem; 
-}
-.story-form { 
-  border: 1px solid var(--line); 
-  background: rgba(0,0,0,.45); 
-  padding: 1.5rem; 
-  display: grid; 
-  gap: 1rem; 
-}
-.story-form label { 
-  display: grid; 
-  gap: .4rem; 
-  font-weight: 700; 
-  font-size: .9rem; 
-}
-.story-form input, .story-form textarea { 
-  background: #050706; 
-  border: 1px solid rgba(255,255,255,.18); 
-  color: white; 
-  padding: .85rem; 
-  font: inherit; 
-  width: 100%;
-}
-.story-form input:focus, .story-form textarea:focus { 
-  outline: none;
-  border-color: var(--emerald-bright);
-  box-shadow: 0 0 8px rgba(14,207,116,0.3);
-}
-.checkbox { 
-  display: flex !important; 
-  grid-template-columns: auto 1fr; 
-  align-items: start; 
-  font-weight: 500 !important; 
-  color: #c6cdc8; 
-  gap: 0.75rem;
-}
-.checkbox input { margin-top: .25rem; }
-.story-form small { 
-  color: var(--muted); 
-  display: block; 
-  margin-top: 0.5rem;
 }
 
 /* Community Stats */
@@ -382,11 +318,6 @@ footer { background: #020403; border-top: 1px solid var(--line); }
   .main-nav a {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .story-wrap {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
   
   .stats {
